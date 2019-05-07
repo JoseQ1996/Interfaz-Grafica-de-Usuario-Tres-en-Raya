@@ -12,23 +12,31 @@ import java.awt.Image;
 import java.util.Random;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
- *
- * @author Usuario
+ *Ventana donde se crea toda la interfaz del 3 en Raya
+ * 
+ * @author José Quinde
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
 
     /**
      * Creates new form VentanaPrincipal
      */
-    private int[][] turno=new int[3][3];
+    private int[][] turno;
     private int jugador1;
     private int compu1;
+    private int b1,b2,b3,b4,b5,b6,b7,b8,b9;
     ImageIcon circulo=new ImageIcon(getClass().getResource("/ec/ups/edu/imagenes/circuloazul_dmd.jpg"));
     ImageIcon equis=new ImageIcon(getClass().getResource("/ec/ups/edu/imagenes/equis.png"));
+    /**
+     * Se crea la imagen del campo para el tres en raya
+     */
     public class Imagen extends javax.swing.JPanel {
-
+        /**
+         * Se dimensiona la imagen
+         */
         public Imagen() {
         this.setSize(310, 310); //se selecciona el tamaño del panel
         }
@@ -43,15 +51,90 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         super.paintComponent(grafico);
         }
         }
+    /**
+     * Constructor que inicializa los componentes
+     */
     public VentanaPrincipal() {
         initComponents();
+        turno=new int[3][3];
+        b1=0;
+        b2=0;b3=0;b4=0;b5=0;b6=0;b7=0;b8=0;
+        b9=0;
         jugador1=1;
         compu1=1;
         Imagen Imagen = new Imagen();
         panel1.add(Imagen);
         panel1.repaint();
     }
-
+   public void gana(){
+       //Compara los horizontales
+       if(turno[0][0]==1 && turno[0][1]==1 && turno [0][2]==1){
+           JOptionPane.showMessageDialog(this,"El jugador a Ganado","Felicidades",JOptionPane.OK_OPTION);
+           new VentanaPrincipal().setVisible(true);
+       }
+       if(turno[1][0]==1 && turno[1][1]==1 && turno [1][2]==1){
+           JOptionPane.showMessageDialog(this,"El jugador a Ganado","Felicidades",JOptionPane.OK_OPTION);
+           new VentanaPrincipal().setVisible(true);
+       }
+       if(turno[2][0]==1 && turno[2][1]==0 && turno [2][2]==1){
+           JOptionPane.showMessageDialog(this,"El jugador a Ganado","Felicidades",JOptionPane.OK_OPTION);
+           new VentanaPrincipal().setVisible(true);
+       }
+        if(turno[0][0]==2 && turno[0][1]==2 && turno [0][2]==2){
+           JOptionPane.showMessageDialog(this,"La Computadora gana","GAME-OVER",JOptionPane.OK_OPTION);
+           new VentanaPrincipal().setVisible(true);
+       }
+       if(turno[1][0]==2 && turno[1][1]==2 && turno [1][2]==2){
+           JOptionPane.showMessageDialog(this,"La Computadora gana","GAME-OVER",JOptionPane.OK_OPTION);
+           new VentanaPrincipal().setVisible(true);
+       }
+       if(turno[2][0]==2 && turno[2][1]==2 && turno [2][2]==2){
+           JOptionPane.showMessageDialog(this,"La Computadora gana","GAME-OVER",JOptionPane.OK_OPTION);
+           new VentanaPrincipal().setVisible(true);
+       }
+       //Compara los verticales
+       if(turno[0][0]==1 && turno[1][0]==1 && turno [2][0]==1){
+           JOptionPane.showMessageDialog(this,"El jugador a Ganado","Felicidades",JOptionPane.OK_OPTION);
+           new VentanaPrincipal().setVisible(true);
+       }
+       if(turno[0][1]==1 && turno[1][1]==1 && turno [2][1]==1){
+           JOptionPane.showMessageDialog(this,"El jugador a Ganado","Felicidades",JOptionPane.OK_OPTION);
+           new VentanaPrincipal().setVisible(true);
+       }
+       if(turno[0][2]==1 && turno[1][2]==0 && turno [2][2]==1){
+           JOptionPane.showMessageDialog(this,"El jugador a Ganado","Felicidades",JOptionPane.OK_OPTION);
+           new VentanaPrincipal().setVisible(true);
+       }
+        if(turno[0][0]==2 && turno[1][0]==2 && turno [2][0]==2){
+           JOptionPane.showMessageDialog(this,"La Computadora gana","GAME-OVER",JOptionPane.OK_OPTION);
+           new VentanaPrincipal().setVisible(true);
+       }
+       if(turno[0][1]==2 && turno[1][1]==2 && turno [2][1]==2){
+           JOptionPane.showMessageDialog(this,"La Computadora gana","GAME-OVER",JOptionPane.OK_OPTION);
+           new VentanaPrincipal().setVisible(true);
+       }
+       if(turno[0][2]==2 && turno[1][2]==2 && turno [2][2]==2){
+           JOptionPane.showMessageDialog(this,"La Computadora gana","GAME-OVER",JOptionPane.OK_OPTION);
+           new VentanaPrincipal().setVisible(true);
+       }
+       //Compara los cruzados
+       if(turno[0][0]==1 && turno[1][1]==1 && turno [2][2]==1){
+           JOptionPane.showMessageDialog(this,"El jugador a Ganado","Felicidades",JOptionPane.OK_OPTION);
+           new VentanaPrincipal().setVisible(true);
+       }
+       if(turno[2][0]==1 && turno[1][1]==1 && turno [0][2]==1){
+           JOptionPane.showMessageDialog(this,"El jugador a Ganado","Felicidades",JOptionPane.OK_OPTION);
+           new VentanaPrincipal().setVisible(true);
+       }
+        if(turno[2][0]==2 && turno[1][1]==2 && turno [0][2]==2){
+           JOptionPane.showMessageDialog(this,"La Computadora gana","GAME-OVER",JOptionPane.OK_OPTION);
+           new VentanaPrincipal().setVisible(true);
+       }
+       if(turno[0][0]==2 && turno[1][1]==2 && turno [2][2]==2){
+           JOptionPane.showMessageDialog(this,"La Computadora gana","GAME-OVER",JOptionPane.OK_OPTION);
+           new VentanaPrincipal().setVisible(true);
+       }
+   }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -83,12 +166,27 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         btn3.setBackground(java.awt.Color.white);
         btn3.setForeground(new java.awt.Color(255, 255, 255));
+        btn3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn3ActionPerformed(evt);
+            }
+        });
 
         btn6.setBackground(java.awt.Color.white);
         btn6.setForeground(new java.awt.Color(255, 255, 255));
+        btn6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn6ActionPerformed(evt);
+            }
+        });
 
         btn5.setBackground(java.awt.Color.white);
         btn5.setForeground(new java.awt.Color(255, 255, 255));
+        btn5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn5ActionPerformed(evt);
+            }
+        });
 
         btn4.setBackground(java.awt.Color.white);
         btn4.setForeground(new java.awt.Color(255, 255, 255));
@@ -100,9 +198,19 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         btn9.setBackground(java.awt.Color.white);
         btn9.setForeground(new java.awt.Color(255, 255, 255));
+        btn9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn9ActionPerformed(evt);
+            }
+        });
 
         btn8.setBackground(java.awt.Color.white);
         btn8.setForeground(new java.awt.Color(255, 255, 255));
+        btn8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn8ActionPerformed(evt);
+            }
+        });
 
         btn7.setBackground(java.awt.Color.white);
         btn7.setForeground(new java.awt.Color(255, 255, 255));
@@ -257,10 +365,248 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     private void btn4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn4ActionPerformed
         // TODO add your handling code here:
+        Icon icono=new ImageIcon(circulo.getImage().getScaledInstance(btn4.getWidth(), btn4.getHeight(), Image.SCALE_DEFAULT));
+        btn4.setIcon(icono);
+        txtTurno1.setText(String.valueOf(jugador1));
+        btn4.setEnabled(false);
+        jugador1++;
+        turno[1][0]=1;
+        b4=1;
+        //generador de numeros aleatorios
+        if(b1==1){
+         Random generadorAleatorios = new Random();
+        //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+        int numeroAleatorio = 1+generadorAleatorios.nextInt(2);
+            switch(numeroAleatorio){
+              case 1:
+            Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn5.getWidth(), btn5.getHeight(), Image.SCALE_DEFAULT));
+            btn5.setIcon(icono1);
+            btn5.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][1]=2;
+            b5=1;
+                    break;  
+                case 2:
+            Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn2.getWidth(), btn2.getHeight(), Image.SCALE_DEFAULT));
+            btn2.setIcon(icono2);
+            btn2.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[0][1]=2;
+            b2=1;
+                    break;
+            }
+        }
+        else if(b5==1){
+            Random generadorAleatorios = new Random();
+            //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+            int numeroAleatorio = 1+generadorAleatorios.nextInt(2);
+            switch(numeroAleatorio){
+              case 1:
+            Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn1.getWidth(), btn1.getHeight(), Image.SCALE_DEFAULT));
+            btn1.setIcon(icono1);
+            btn1.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[0][0]=2;
+            b1=1;
+                    break;  
+                case 2:
+            Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn7.getWidth(), btn7.getHeight(), Image.SCALE_DEFAULT));
+            btn7.setIcon(icono2);
+            btn7.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[2][0]=2;
+            b7=1;
+                    break;
+            } 
+        }
+        else if(b7==1){
+            Random generadorAleatorios = new Random();
+            //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+            int numeroAleatorio = 1+generadorAleatorios.nextInt(2);
+            switch(numeroAleatorio){
+              case 1:
+            Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn1.getWidth(), btn1.getHeight(), Image.SCALE_DEFAULT));
+            btn1.setIcon(icono1);
+            btn1.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[0][0]=2;
+            b1=1;
+                    break;  
+                case 2:
+            Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn5.getWidth(), btn5.getHeight(), Image.SCALE_DEFAULT));
+            btn5.setIcon(icono2);
+            btn5.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][1]=2;
+            b5=1;
+                    break;
+            } 
+        }
+        else{
+        //generador de numeros aleatorios
+        Random generadorAleatorios = new Random();
+        //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+        int numeroAleatorio = 1+generadorAleatorios.nextInt(3);
+        switch(numeroAleatorio){
+          case 1:
+        Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn1.getWidth(), btn1.getHeight(), Image.SCALE_DEFAULT));
+        btn1.setIcon(icono1);
+        btn1.setEnabled(false);
+        txtTurno2.setText(String.valueOf(compu1));
+        compu1++;
+        turno[0][0]=2;
+        b1=1;
+                break;  
+            case 2:
+        Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn5.getWidth(), btn5.getHeight(), Image.SCALE_DEFAULT));
+        btn5.setIcon(icono2);
+        btn5.setEnabled(false);
+        txtTurno2.setText(String.valueOf(compu1));
+        compu1++;
+        turno[1][1]=2;
+        b5=1;
+                break;
+                case 3:
+        Icon icono3=new ImageIcon(equis.getImage().getScaledInstance(btn7.getWidth(), btn7.getHeight(), Image.SCALE_DEFAULT));
+        btn7.setIcon(icono3);
+        btn7.setEnabled(false);
+        txtTurno2.setText(String.valueOf(compu1));
+        compu1++;
+        turno[2][0]=2;
+        b7=1;
+                break;
+        }
+        }
+    gana();
     }//GEN-LAST:event_btn4ActionPerformed
 
     private void btn7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn7ActionPerformed
         // TODO add your handling code here:
+        Icon icono=new ImageIcon(circulo.getImage().getScaledInstance(btn7.getWidth(), btn7.getHeight(), Image.SCALE_DEFAULT));
+        btn7.setIcon(icono);
+        txtTurno1.setText(String.valueOf(jugador1));
+        btn7.setEnabled(false);
+        jugador1++;
+        turno[2][0]=1;
+        b7=1;
+        //generador de numeros aleatorios
+        if(b4==1){
+         Random generadorAleatorios = new Random();
+        //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+        int numeroAleatorio = 1+generadorAleatorios.nextInt(2);
+            switch(numeroAleatorio){
+              case 1:
+            Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn5.getWidth(), btn5.getHeight(), Image.SCALE_DEFAULT));
+            btn5.setIcon(icono1);
+            btn5.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][1]=2;
+            b5=1;
+                    break;  
+                case 2:
+            Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn8.getWidth(), btn8.getHeight(), Image.SCALE_DEFAULT));
+            btn8.setIcon(icono2);
+            btn8.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[2][1]=2;
+            b8=1;
+                    break;
+            }
+        }
+        else if(b5==1){
+            Random generadorAleatorios = new Random();
+            //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+            int numeroAleatorio = 1+generadorAleatorios.nextInt(2);
+            switch(numeroAleatorio){
+              case 1:
+            Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn4.getWidth(), btn4.getHeight(), Image.SCALE_DEFAULT));
+            btn4.setIcon(icono1);
+            btn4.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][0]=2;
+            b4=1;
+                    break;  
+                case 2:
+            Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn8.getWidth(), btn8.getHeight(), Image.SCALE_DEFAULT));
+            btn8.setIcon(icono2);
+            btn8.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[2][1]=2;
+            b8=1;
+                    break;
+            } 
+        }
+        else if(b8==1){
+            Random generadorAleatorios = new Random();
+            //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+            int numeroAleatorio = 1+generadorAleatorios.nextInt(2);
+            switch(numeroAleatorio){
+              case 1:
+            Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn4.getWidth(), btn4.getHeight(), Image.SCALE_DEFAULT));
+            btn4.setIcon(icono1);
+            btn4.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][0]=2;
+            b4=1;
+                    break;  
+                case 2:
+            Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn5.getWidth(), btn5.getHeight(), Image.SCALE_DEFAULT));
+            btn5.setIcon(icono2);
+            btn5.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][1]=2;
+            b5=1;
+                    break;
+            } 
+        }
+        else{
+        //generador de numeros aleatorios
+        Random generadorAleatorios = new Random();
+        //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+        int numeroAleatorio = 1+generadorAleatorios.nextInt(3);
+        switch(numeroAleatorio){
+          case 1:
+        Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn4.getWidth(), btn4.getHeight(), Image.SCALE_DEFAULT));
+        btn4.setIcon(icono1);
+        btn4.setEnabled(false);
+        txtTurno2.setText(String.valueOf(compu1));
+        compu1++;
+        turno[1][0]=2;
+        b4=1;
+                break;  
+            case 2:
+        Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn5.getWidth(), btn5.getHeight(), Image.SCALE_DEFAULT));
+        btn5.setIcon(icono2);
+        btn5.setEnabled(false);
+        txtTurno2.setText(String.valueOf(compu1));
+        compu1++;
+        turno[1][1]=2;
+        b5=1;
+                break;
+                case 3:
+        Icon icono3=new ImageIcon(equis.getImage().getScaledInstance(btn8.getWidth(), btn8.getHeight(), Image.SCALE_DEFAULT));
+        btn8.setIcon(icono3);
+        btn8.setEnabled(false);
+        txtTurno2.setText(String.valueOf(compu1));
+        compu1++;
+        turno[2][1]=2;
+        b8=1;
+                break;
+        }
+        }
+    gana();
     }//GEN-LAST:event_btn7ActionPerformed
 
     private void txtTurno2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTurno2ActionPerformed
@@ -274,38 +620,119 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         txtTurno1.setText(String.valueOf(jugador1));
         jugador1++;
         turno[0][0]=1;
-        btn1.disable();
+        btn1.setEnabled(false);
+        b1=1;
         //generador de numeros aleatorios
-        Random generadorAleatorios = new Random();
+        if(b2==1){
+         Random generadorAleatorios = new Random();
         //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
-        int numeroAleatorio = 1+generadorAleatorios.nextInt(3);
-        switch(numeroAleatorio){
-          case 1:
-       
-        Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn2.getWidth(), btn2.getHeight(), Image.SCALE_DEFAULT));
-        btn2.setIcon(icono1);
-        btn2.disable();
-        txtTurno2.setText(String.valueOf(compu1));
-        compu1++;
-        turno[0][1]=0;
-                break;  
-            case 2:
-        Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn5.getWidth(), btn5.getHeight(), Image.SCALE_DEFAULT));
-        btn5.setIcon(icono2);
-        btn5.disable();
-        txtTurno2.setText(String.valueOf(compu1));
-        compu1++;
-        turno[1][1]=0;
-                break;
-                case 3:
-        Icon icono3=new ImageIcon(equis.getImage().getScaledInstance(btn4.getWidth(), btn4.getHeight(), Image.SCALE_DEFAULT));
-        btn4.setIcon(icono3);
-        btn4.disable();
-        txtTurno2.setText(String.valueOf(compu1));
-        compu1++;
-        turno[1][1]=0;
-                break;
+        int numeroAleatorio = 1+generadorAleatorios.nextInt(2);
+            switch(numeroAleatorio){
+              case 1:
+            Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn5.getWidth(), btn5.getHeight(), Image.SCALE_DEFAULT));
+            btn5.setIcon(icono1);
+            btn5.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][1]=2;
+            b5=1;
+                    break;  
+                case 2:
+            Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn4.getWidth(), btn4.getHeight(), Image.SCALE_DEFAULT));
+            btn4.setIcon(icono2);
+            btn4.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][0]=2;
+            b4=1;
+                    break;
+            }
         }
+        else if(b5==1){
+            Random generadorAleatorios = new Random();
+            //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+            int numeroAleatorio = 1+generadorAleatorios.nextInt(2);
+            switch(numeroAleatorio){
+              case 1:
+            Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn2.getWidth(), btn2.getHeight(), Image.SCALE_DEFAULT));
+            btn2.setIcon(icono1);
+            btn2.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[0][1]=2;
+            b2=1;
+                    break;  
+                case 2:
+            Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn4.getWidth(), btn4.getHeight(), Image.SCALE_DEFAULT));
+            btn4.setIcon(icono2);
+            btn4.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][0]=2;
+            b4=1;
+                    break;
+            } 
+        }
+        else if(b4==1){
+            Random generadorAleatorios = new Random();
+            //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+            int numeroAleatorio = 1+generadorAleatorios.nextInt(2);
+            switch(numeroAleatorio){
+              case 1:
+            Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn2.getWidth(), btn2.getHeight(), Image.SCALE_DEFAULT));
+            btn2.setIcon(icono1);
+            btn2.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[0][1]=2;
+            b2=1;
+                    break;  
+                case 2:
+            Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn5.getWidth(), btn5.getHeight(), Image.SCALE_DEFAULT));
+            btn5.setIcon(icono2);
+            btn5.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][1]=2;
+            b5=1;
+                    break;
+            } 
+        }
+        else{
+            Random generadorAleatorios = new Random();
+            //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+            int numeroAleatorio = 1+generadorAleatorios.nextInt(3);
+                switch(numeroAleatorio){
+                  case 1:
+                Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn2.getWidth(), btn2.getHeight(), Image.SCALE_DEFAULT));
+                btn2.setIcon(icono1);
+                btn2.setEnabled(false);
+                txtTurno2.setText(String.valueOf(compu1));
+                compu1++;
+                turno[0][1]=2;
+                b2=1;
+                        break;  
+                    case 2:
+                Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn5.getWidth(), btn5.getHeight(), Image.SCALE_DEFAULT));
+                btn5.setIcon(icono2);
+                btn5.setEnabled(false);
+                txtTurno2.setText(String.valueOf(compu1));
+                compu1++;
+                turno[1][1]=2;
+                b5=1;
+                        break;
+                        case 3:
+                Icon icono3=new ImageIcon(equis.getImage().getScaledInstance(btn4.getWidth(), btn4.getHeight(), Image.SCALE_DEFAULT));
+                btn4.setIcon(icono3);
+                btn4.setEnabled(false);
+                txtTurno2.setText(String.valueOf(compu1));
+                compu1++;
+                turno[1][0]=2;
+                b4=1;
+                        break;
+                }
+            }
+        gana();
     }//GEN-LAST:event_btn1ActionPerformed
 
     private void btn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn2ActionPerformed
@@ -313,54 +740,839 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             Icon icono=new ImageIcon(circulo.getImage().getScaledInstance(btn2.getWidth(), btn2.getHeight(), Image.SCALE_DEFAULT));
         btn2.setIcon(icono);
         txtTurno1.setText(String.valueOf(jugador1));
+        btn2.setEnabled(false);
         jugador1++;
         turno[0][1]=1;
+        b2=1;
+        //generador de numeros aleatorios
+        if(b1==1){
+         Random generadorAleatorios = new Random();
+        //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+        int numeroAleatorio = 1+generadorAleatorios.nextInt(2);
+            switch(numeroAleatorio){
+              case 1:
+            Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn5.getWidth(), btn5.getHeight(), Image.SCALE_DEFAULT));
+            btn5.setIcon(icono1);
+            btn5.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][1]=2;
+            b5=1;
+                    break;  
+                case 2:
+            Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn3.getWidth(), btn3.getHeight(), Image.SCALE_DEFAULT));
+            btn3.setIcon(icono2);
+            btn3.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[0][2]=2;
+            b3=1;
+                    break;
+            }
+        }
+        else if(b5==1){
+            Random generadorAleatorios = new Random();
+            //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+            int numeroAleatorio = 1+generadorAleatorios.nextInt(2);
+            switch(numeroAleatorio){
+              case 1:
+            Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn1.getWidth(), btn1.getHeight(), Image.SCALE_DEFAULT));
+            btn1.setIcon(icono1);
+            btn1.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[0][0]=2;
+            b1=1;
+                    break;  
+                case 2:
+            Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn3.getWidth(), btn3.getHeight(), Image.SCALE_DEFAULT));
+            btn3.setIcon(icono2);
+            btn3.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[0][2]=2;
+            b3=1;
+                    break;
+            } 
+        }
+        else if(b3==1){
+            Random generadorAleatorios = new Random();
+            //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+            int numeroAleatorio = 1+generadorAleatorios.nextInt(2);
+            switch(numeroAleatorio){
+              case 1:
+            Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn1.getWidth(), btn1.getHeight(), Image.SCALE_DEFAULT));
+            btn1.setIcon(icono1);
+            btn1.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[0][0]=2;
+            b1=1;
+                    break;  
+                case 2:
+            Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn5.getWidth(), btn5.getHeight(), Image.SCALE_DEFAULT));
+            btn5.setIcon(icono2);
+            btn5.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][1]=2;
+            b5=1;
+                    break;
+            } 
+        }
+        else{
         //generador de numeros aleatorios
         Random generadorAleatorios = new Random();
         //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
         int numeroAleatorio = 1+generadorAleatorios.nextInt(3);
         switch(numeroAleatorio){
           case 1:
-       
         Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn1.getWidth(), btn1.getHeight(), Image.SCALE_DEFAULT));
         btn1.setIcon(icono1);
-        btn1.disable();
+        btn1.setEnabled(false);
         txtTurno2.setText(String.valueOf(compu1));
         compu1++;
-        turno[0][0]=0;
+        turno[0][0]=2;
+        b1=1;
                 break;  
             case 2:
         Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn5.getWidth(), btn5.getHeight(), Image.SCALE_DEFAULT));
         btn5.setIcon(icono2);
-        btn5.disable();
+        btn5.setEnabled(false);
         txtTurno2.setText(String.valueOf(compu1));
         compu1++;
-        turno[1][1]=0;
+        turno[1][1]=2;
+        b5=1;
                 break;
                 case 3:
         Icon icono3=new ImageIcon(equis.getImage().getScaledInstance(btn3.getWidth(), btn3.getHeight(), Image.SCALE_DEFAULT));
         btn3.setIcon(icono3);
-        btn3.disable();
+        btn3.setEnabled(false);
         txtTurno2.setText(String.valueOf(compu1));
         compu1++;
-        turno[0][2]=0;
+        turno[0][2]=2;
+        b3=1;
                 break;
         }
+        }
+        gana();
     }//GEN-LAST:event_btn2ActionPerformed
 
     private void btnNuevaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevaActionPerformed
         // TODO add your handling code here:
-        initComponents();
+        turno=new int[3][3];
         jugador1=1;
         compu1=1;
-        Imagen Imagen = new Imagen();
-        panel1.add(Imagen);
-        panel1.repaint();
         btn1.setIcon(null);
-        btn1.enable();
+        btn1.setEnabled(true);
         btn2.setIcon(null);
-        btn2.enable();
+        btn2.setEnabled(true);
+        btn3.setIcon(null);
+        btn3.setEnabled(true);
+        btn4.setIcon(null);
+        btn4.setEnabled(true);
+        btn5.setIcon(null);
+        btn5.setEnabled(true);
+        btn6.setIcon(null);
+        btn6.setEnabled(true);
+        btn7.setIcon(null);
+        btn7.setEnabled(true);
+        btn8.setIcon(null);
+        btn8.setEnabled(true);
+        btn9.setIcon(null);
+        btn9.setEnabled(true);
+        txtTurno1.setText("0");
+        txtTurno2.setText("0");
+        b1=0;
+        b2=0;b3=0;b4=0;b5=0;b6=0;b7=0;b8=0;
+        b9=0;
+      
     }//GEN-LAST:event_btnNuevaActionPerformed
+
+    private void btn3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn3ActionPerformed
+        // TODO add your handling code here:
+        Icon icono=new ImageIcon(circulo.getImage().getScaledInstance(btn2.getWidth(), btn2.getHeight(), Image.SCALE_DEFAULT));
+        btn3.setIcon(icono);
+        txtTurno1.setText(String.valueOf(jugador1));
+        btn3.setEnabled(false);
+        jugador1++;
+        turno[0][2]=1;
+        b3=1;
+        //generador de numeros aleatorios
+        if(b2==1){
+         Random generadorAleatorios = new Random();
+        //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+        int numeroAleatorio = 1+generadorAleatorios.nextInt(2);
+            switch(numeroAleatorio){
+              case 1:
+            Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn5.getWidth(), btn5.getHeight(), Image.SCALE_DEFAULT));
+            btn5.setIcon(icono1);
+            btn5.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][1]=2;
+            b5=1;
+                    break;  
+                case 2:
+            Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn6.getWidth(), btn6.getHeight(), Image.SCALE_DEFAULT));
+            btn6.setIcon(icono2);
+            btn6.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][2]=2;
+            b6=1;
+                    break;
+            }
+        }
+        else if(b5==1){
+            Random generadorAleatorios = new Random();
+            //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+            int numeroAleatorio = 1+generadorAleatorios.nextInt(2);
+            switch(numeroAleatorio){
+              case 1:
+            Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn2.getWidth(), btn2.getHeight(), Image.SCALE_DEFAULT));
+            btn2.setIcon(icono1);
+            btn2.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[0][1]=2;
+            b2=1;
+                    break;  
+                case 2:
+            Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn6.getWidth(), btn6.getHeight(), Image.SCALE_DEFAULT));
+            btn6.setIcon(icono2);
+            btn6.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][2]=2;
+            b6=1;
+                    break;
+            } 
+        }
+        else if(b6==1){
+            Random generadorAleatorios = new Random();
+            //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+            int numeroAleatorio = 1+generadorAleatorios.nextInt(2);
+            switch(numeroAleatorio){
+              case 1:
+            Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn2.getWidth(), btn2.getHeight(), Image.SCALE_DEFAULT));
+            btn2.setIcon(icono1);
+            btn2.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[0][1]=2;
+            b2=1;
+                    break;  
+                case 2:
+            Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn5.getWidth(), btn5.getHeight(), Image.SCALE_DEFAULT));
+            btn5.setIcon(icono2);
+            btn5.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][1]=2;
+            b5=1;
+                    break;
+            } 
+        }
+        else{
+        //generador de numeros aleatorios
+        Random generadorAleatorios = new Random();
+        //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+        int numeroAleatorio = 1+generadorAleatorios.nextInt(3);
+        switch(numeroAleatorio){
+          case 1:
+        Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn2.getWidth(), btn2.getHeight(), Image.SCALE_DEFAULT));
+        btn2.setIcon(icono1);
+        btn2.setEnabled(false);
+        txtTurno2.setText(String.valueOf(compu1));
+        compu1++;
+        turno[0][1]=2;
+        b2=1;
+                break;  
+            case 2:
+        Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn5.getWidth(), btn5.getHeight(), Image.SCALE_DEFAULT));
+        btn5.setIcon(icono2);
+        btn5.setEnabled(false);
+        txtTurno2.setText(String.valueOf(compu1));
+        compu1++;
+        turno[1][1]=2;
+        b5=1;
+                break;
+                case 3:
+        Icon icono3=new ImageIcon(equis.getImage().getScaledInstance(btn6.getWidth(), btn6.getHeight(), Image.SCALE_DEFAULT));
+        btn6.setIcon(icono3);
+        btn6.setEnabled(false);
+        txtTurno2.setText(String.valueOf(compu1));
+        compu1++;
+        turno[1][2]=2;
+        b6=1;
+                break;
+        }
+        }
+      gana();      
+    }//GEN-LAST:event_btn3ActionPerformed
+
+    private void btn8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn8ActionPerformed
+        // TODO add your handling code here:
+        Icon icono=new ImageIcon(circulo.getImage().getScaledInstance(btn8.getWidth(), btn8.getHeight(), Image.SCALE_DEFAULT));
+        btn8.setIcon(icono);
+        txtTurno1.setText(String.valueOf(jugador1));
+        btn8.setEnabled(false);
+        jugador1++;
+        turno[2][1]=1;
+        b8=1;
+        //generador de numeros aleatorios
+        if(b7==1){
+         Random generadorAleatorios = new Random();
+        //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+        int numeroAleatorio = 1+generadorAleatorios.nextInt(2);
+            switch(numeroAleatorio){
+              case 1:
+            Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn5.getWidth(), btn5.getHeight(), Image.SCALE_DEFAULT));
+            btn5.setIcon(icono1);
+            btn5.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][1]=2;
+            b5=1;
+                    break;  
+                case 2:
+            Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn9.getWidth(), btn9.getHeight(), Image.SCALE_DEFAULT));
+            btn9.setIcon(icono2);
+            btn9.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[2][2]=2;
+            b9=1;
+                    break;
+            }
+        }
+        else if(b5==1){
+            Random generadorAleatorios = new Random();
+            //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+            int numeroAleatorio = 1+generadorAleatorios.nextInt(2);
+            switch(numeroAleatorio){
+              case 1:
+            Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn7.getWidth(), btn7.getHeight(), Image.SCALE_DEFAULT));
+            btn7.setIcon(icono1);
+            btn7.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[2][0]=2;
+            b7=1;
+                    break;  
+                case 2:
+            Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn9.getWidth(), btn9.getHeight(), Image.SCALE_DEFAULT));
+            btn9.setIcon(icono2);
+            btn9.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[2][2]=2;
+            b9=1;
+                    break;
+            } 
+        }
+        else if(b9==1){
+            Random generadorAleatorios = new Random();
+            //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+            int numeroAleatorio = 1+generadorAleatorios.nextInt(2);
+            switch(numeroAleatorio){
+              case 1:
+            Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn7.getWidth(), btn7.getHeight(), Image.SCALE_DEFAULT));
+            btn7.setIcon(icono1);
+            btn7.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[2][0]=2;
+            b7=1;
+                    break;  
+                case 2:
+            Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn5.getWidth(), btn5.getHeight(), Image.SCALE_DEFAULT));
+            btn5.setIcon(icono2);
+            btn5.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][1]=2;
+            b5=1;
+                    break;
+            } 
+        }
+        else{
+        //generador de numeros aleatorios
+        Random generadorAleatorios = new Random();
+        //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+        int numeroAleatorio = 1+generadorAleatorios.nextInt(3);
+        switch(numeroAleatorio){
+          case 1:
+        Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn1.getWidth(), btn1.getHeight(), Image.SCALE_DEFAULT));
+        btn1.setIcon(icono1);
+        btn1.setEnabled(false);
+        txtTurno2.setText(String.valueOf(compu1));
+        compu1++;
+        turno[0][0]=2;
+        b1=1;
+                break;  
+            case 2:
+        Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn5.getWidth(), btn5.getHeight(), Image.SCALE_DEFAULT));
+        btn5.setIcon(icono2);
+        btn5.setEnabled(false);
+        txtTurno2.setText(String.valueOf(compu1));
+        compu1++;
+        turno[1][1]=2;
+        b5=1;
+                break;
+                case 3:
+        Icon icono3=new ImageIcon(equis.getImage().getScaledInstance(btn3.getWidth(), btn3.getHeight(), Image.SCALE_DEFAULT));
+        btn3.setIcon(icono3);
+        btn3.setEnabled(false);
+        txtTurno2.setText(String.valueOf(compu1));
+        compu1++;
+        turno[0][2]=2;
+        b3=1;
+                break;
+        }
+        }
+      gana();
+    }//GEN-LAST:event_btn8ActionPerformed
+
+    private void btn9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn9ActionPerformed
+        // TODO add your handling code here:
+      Icon icono=new ImageIcon(circulo.getImage().getScaledInstance(btn9.getWidth(), btn9.getHeight(), Image.SCALE_DEFAULT));
+        btn9.setIcon(icono);
+        txtTurno1.setText(String.valueOf(jugador1));
+        btn9.setEnabled(false);
+        jugador1++;
+        turno[2][2]=1;
+        b9=1;
+        //generador de numeros aleatorios
+        if(b6==1){
+         Random generadorAleatorios = new Random();
+        //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+        int numeroAleatorio = 1+generadorAleatorios.nextInt(2);
+            switch(numeroAleatorio){
+              case 1:
+            Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn5.getWidth(), btn5.getHeight(), Image.SCALE_DEFAULT));
+            btn5.setIcon(icono1);
+            btn5.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][1]=2;
+            b5=1;
+                    break;  
+                case 2:
+            Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn8.getWidth(), btn8.getHeight(), Image.SCALE_DEFAULT));
+            btn8.setIcon(icono2);
+            btn8.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[2][1]=2;
+            b8=1;
+                    break;
+            }
+        }
+        else if(b5==1){
+            Random generadorAleatorios = new Random();
+            //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+            int numeroAleatorio = 1+generadorAleatorios.nextInt(2);
+            switch(numeroAleatorio){
+              case 1:
+            Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn8.getWidth(), btn8.getHeight(), Image.SCALE_DEFAULT));
+            btn8.setIcon(icono1);
+            btn8.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[2][1]=2;
+            b8=1;
+                    break;  
+                case 2:
+            Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn6.getWidth(), btn6.getHeight(), Image.SCALE_DEFAULT));
+            btn6.setIcon(icono2);
+            btn6.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][2]=2;
+            b6=1;
+                    break;
+            } 
+        }
+        else if(b8==1){
+            Random generadorAleatorios = new Random();
+            //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+            int numeroAleatorio = 1+generadorAleatorios.nextInt(2);
+            switch(numeroAleatorio){
+              case 1:
+            Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn6.getWidth(), btn6.getHeight(), Image.SCALE_DEFAULT));
+            btn6.setIcon(icono1);
+            btn6.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][2]=2;
+            b6=1;
+                    break;  
+                case 2:
+            Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn5.getWidth(), btn5.getHeight(), Image.SCALE_DEFAULT));
+            btn5.setIcon(icono2);
+            btn5.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][1]=2;
+            b5=1;
+                    break;
+            } 
+        }
+        else{
+        //generador de numeros aleatorios
+        Random generadorAleatorios = new Random();
+        //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+        int numeroAleatorio = 1+generadorAleatorios.nextInt(3);
+        switch(numeroAleatorio){
+          case 1:
+        Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn6.getWidth(), btn6.getHeight(), Image.SCALE_DEFAULT));
+        btn6.setIcon(icono1);
+        btn6.setEnabled(false);
+        txtTurno2.setText(String.valueOf(compu1));
+        compu1++;
+        turno[1][2]=2;
+        b6=1;
+                break;  
+            case 2:
+        Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn5.getWidth(), btn5.getHeight(), Image.SCALE_DEFAULT));
+        btn5.setIcon(icono2);
+        btn5.setEnabled(false);
+        txtTurno2.setText(String.valueOf(compu1));
+        compu1++;
+        turno[1][1]=2;
+        b5=1;
+                break;
+                case 3:
+        Icon icono3=new ImageIcon(equis.getImage().getScaledInstance(btn8.getWidth(), btn8.getHeight(), Image.SCALE_DEFAULT));
+        btn8.setIcon(icono3);
+        btn8.setEnabled(false);
+        txtTurno2.setText(String.valueOf(compu1));
+        compu1++;
+        turno[2][1]=2;
+        b8=1;
+                break;
+        }
+        }
+        gana();
+    }//GEN-LAST:event_btn9ActionPerformed
+
+    private void btn6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn6ActionPerformed
+        // TODO add your handling code here:
+        Icon icono=new ImageIcon(circulo.getImage().getScaledInstance(btn6.getWidth(), btn6.getHeight(), Image.SCALE_DEFAULT));
+        btn6.setIcon(icono);
+        txtTurno1.setText(String.valueOf(jugador1));
+        btn6.setEnabled(false);
+        jugador1++;
+        turno[2][1]=1;
+        b6=1;
+        //generador de numeros aleatorios
+        if(b9==1){
+         Random generadorAleatorios = new Random();
+        //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+        int numeroAleatorio = 1+generadorAleatorios.nextInt(2);
+            switch(numeroAleatorio){
+              case 1:
+            Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn5.getWidth(), btn5.getHeight(), Image.SCALE_DEFAULT));
+            btn5.setIcon(icono1);
+            btn5.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][1]=2;
+            b5=1;
+                    break;  
+                case 2:
+            Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn3.getWidth(), btn3.getHeight(), Image.SCALE_DEFAULT));
+            btn3.setIcon(icono2);
+            btn3.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[0][2]=2;
+            b3=1;
+                    break;
+            }
+        }
+        else if(b5==1){
+            Random generadorAleatorios = new Random();
+            //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+            int numeroAleatorio = 1+generadorAleatorios.nextInt(2);
+            switch(numeroAleatorio){
+              case 1:
+            Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn9.getWidth(), btn9.getHeight(), Image.SCALE_DEFAULT));
+            btn9.setIcon(icono1);
+            btn9.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[2][2]=2;
+            b9=1;
+                    break;  
+                case 2:
+            Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn3.getWidth(), btn3.getHeight(), Image.SCALE_DEFAULT));
+            btn3.setIcon(icono2);
+            btn3.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[0][2]=2;
+            b3=1;
+                    break;
+            } 
+        }
+        else if(b3==1){
+            Random generadorAleatorios = new Random();
+            //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+            int numeroAleatorio = 1+generadorAleatorios.nextInt(2);
+            switch(numeroAleatorio){
+              case 1:
+            Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn9.getWidth(), btn9.getHeight(), Image.SCALE_DEFAULT));
+            btn9.setIcon(icono1);
+            btn9.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[2][2]=2;
+            b9=1;
+                    break;  
+                case 2:
+            Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn5.getWidth(), btn5.getHeight(), Image.SCALE_DEFAULT));
+            btn5.setIcon(icono2);
+            btn5.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][1]=2;
+            b5=1;
+                    break;
+            } 
+        }
+        else{
+        //generador de numeros aleatorios
+        Random generadorAleatorios = new Random();
+        //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+        int numeroAleatorio = 1+generadorAleatorios.nextInt(3);
+        switch(numeroAleatorio){
+          case 1:
+        Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn9.getWidth(), btn9.getHeight(), Image.SCALE_DEFAULT));
+        btn9.setIcon(icono1);
+        btn9.setEnabled(false);
+        txtTurno2.setText(String.valueOf(compu1));
+        compu1++;
+        turno[2][2]=2;
+        b9=1;
+                break;  
+            case 2:
+        Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn5.getWidth(), btn5.getHeight(), Image.SCALE_DEFAULT));
+        btn5.setIcon(icono2);
+        btn5.setEnabled(false);
+        txtTurno2.setText(String.valueOf(compu1));
+        compu1++;
+        turno[1][1]=2;
+        b5=1;
+                break;
+                case 3:
+        Icon icono3=new ImageIcon(equis.getImage().getScaledInstance(btn3.getWidth(), btn3.getHeight(), Image.SCALE_DEFAULT));
+        btn3.setIcon(icono3);
+        btn3.setEnabled(false);
+        txtTurno2.setText(String.valueOf(compu1));
+        compu1++;
+        turno[0][2]=2;
+        b3=1;
+                break;
+        }
+        }
+        gana();
+    }//GEN-LAST:event_btn6ActionPerformed
+
+    private void btn5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn5ActionPerformed
+        // TODO add your handling code here:
+        Icon icono=new ImageIcon(circulo.getImage().getScaledInstance(btn5.getWidth(), btn5.getHeight(), Image.SCALE_DEFAULT));
+        btn5.setIcon(icono);
+        txtTurno1.setText(String.valueOf(jugador1));
+        btn5.setEnabled(false);
+        jugador1++;
+        turno[1][1]=1;
+        b5=1;
+        //generador de numeros aleatorios
+        if(b2==1){
+         Random generadorAleatorios = new Random();
+        //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+        int numeroAleatorio = 1+generadorAleatorios.nextInt(2);
+            switch(numeroAleatorio){
+              case 1:
+            Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn4.getWidth(), btn4.getHeight(), Image.SCALE_DEFAULT));
+            btn4.setIcon(icono1);
+            btn4.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][0]=2;
+            b4=1;
+                    break;  
+                case 2:
+            Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn6.getWidth(), btn6.getHeight(), Image.SCALE_DEFAULT));
+            btn6.setIcon(icono2);
+            btn6.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][2]=2;
+            b6=1;
+                    break;
+                case 3:
+            Icon icono3=new ImageIcon(equis.getImage().getScaledInstance(btn8.getWidth(), btn8.getHeight(), Image.SCALE_DEFAULT));
+            btn8.setIcon(icono3);
+            btn8.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[2][1]=2;
+            b8=1;
+                    break;
+            }
+        }
+        else if(b4==1){
+            Random generadorAleatorios = new Random();
+            //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+            int numeroAleatorio = 1+generadorAleatorios.nextInt(2);
+            switch(numeroAleatorio){
+              case 1:
+            Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn2.getWidth(), btn2.getHeight(), Image.SCALE_DEFAULT));
+            btn2.setIcon(icono1);
+            btn2.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[0][1]=2;
+            b2=1;
+                    break;  
+                case 2:
+            Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn6.getWidth(), btn6.getHeight(), Image.SCALE_DEFAULT));
+            btn6.setIcon(icono2);
+            btn6.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][2]=2;
+            b6=1;
+                    break;
+                 case 3:
+            Icon icono3=new ImageIcon(equis.getImage().getScaledInstance(btn8.getWidth(), btn8.getHeight(), Image.SCALE_DEFAULT));
+            btn8.setIcon(icono3);
+            btn8.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[2][1]=2;
+            b8=1;
+                    break;    
+            } 
+        }
+        else if(b6==1){
+            Random generadorAleatorios = new Random();
+            //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+            int numeroAleatorio = 1+generadorAleatorios.nextInt(2);
+            switch(numeroAleatorio){
+              case 1:
+            Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn2.getWidth(), btn2.getHeight(), Image.SCALE_DEFAULT));
+            btn2.setIcon(icono1);
+            btn2.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[0][1]=2;
+            b2=1;
+                    break;  
+                case 2:
+            Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn4.getWidth(), btn4.getHeight(), Image.SCALE_DEFAULT));
+            btn4.setIcon(icono2);
+            btn4.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][0]=2;
+            b4=1;
+                    break;
+                 case 3:
+            Icon icono3=new ImageIcon(equis.getImage().getScaledInstance(btn8.getWidth(), btn8.getHeight(), Image.SCALE_DEFAULT));
+            btn8.setIcon(icono3);
+            btn8.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[2][1]=2;
+            b8=1;
+                    break;    
+            } 
+        }
+        else if(b8==1){
+            Random generadorAleatorios = new Random();
+            //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+            int numeroAleatorio = 1+generadorAleatorios.nextInt(2);
+            switch(numeroAleatorio){
+              case 1:
+            Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn2.getWidth(), btn2.getHeight(), Image.SCALE_DEFAULT));
+            btn2.setIcon(icono1);
+            btn2.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[0][1]=2;
+            b2=1;
+                    break;  
+                case 2:
+            Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn4.getWidth(), btn4.getHeight(), Image.SCALE_DEFAULT));
+            btn4.setIcon(icono2);
+            btn4.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][0]=2;
+            b4=1;
+                    break;
+                 case 3:
+            Icon icono3=new ImageIcon(equis.getImage().getScaledInstance(btn6.getWidth(), btn6.getHeight(), Image.SCALE_DEFAULT));
+            btn6.setIcon(icono3);
+            btn6.setEnabled(false);
+            txtTurno2.setText(String.valueOf(compu1));
+            compu1++;
+            turno[1][2]=2;
+            b6=1;
+                    break;    
+            } 
+        }
+        else{
+        //generador de numeros aleatorios
+        Random generadorAleatorios = new Random();
+        //genera un numero entre 1 y 3 y lo guarda en la variable numeroAleatorio
+        int numeroAleatorio = 1+generadorAleatorios.nextInt(3);
+        switch(numeroAleatorio){
+          case 1:
+        Icon icono1=new ImageIcon(equis.getImage().getScaledInstance(btn2.getWidth(), btn2.getHeight(), Image.SCALE_DEFAULT));
+        btn2.setIcon(icono1);
+        btn2.setEnabled(false);
+        txtTurno2.setText(String.valueOf(compu1));
+        compu1++;
+        turno[0][1]=2;
+        b2=1;
+                break;  
+            case 2:
+        Icon icono2=new ImageIcon(equis.getImage().getScaledInstance(btn4.getWidth(), btn4.getHeight(), Image.SCALE_DEFAULT));
+        btn4.setIcon(icono2);
+        btn4.setEnabled(false);
+        txtTurno2.setText(String.valueOf(compu1));
+        compu1++;
+        turno[1][0]=2;
+        b4=1;
+                break;
+                case 3:
+        Icon icono3=new ImageIcon(equis.getImage().getScaledInstance(btn6.getWidth(), btn6.getHeight(), Image.SCALE_DEFAULT));
+        btn6.setIcon(icono3);
+        btn6.setEnabled(false);
+        txtTurno2.setText(String.valueOf(compu1));
+        compu1++;
+        turno[1][2]=2;
+        b6=1;
+                break;
+                    case 4:
+        Icon icono4=new ImageIcon(equis.getImage().getScaledInstance(btn8.getWidth(), btn8.getHeight(), Image.SCALE_DEFAULT));
+        btn8.setIcon(icono4);
+        btn8.setEnabled(false);
+        txtTurno2.setText(String.valueOf(compu1));
+        compu1++;
+        turno[2][1]=2;
+        b8=1;
+                break;
+        }
+        } 
+        gana();
+    }//GEN-LAST:event_btn5ActionPerformed
 
     /**
      * @param args the command line arguments
